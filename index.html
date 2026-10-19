@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Regalos para el cumple de Carla</title>
+<meta name="description" content="Elegí un regalo y marcalo como comprado, así nadie lo repite.">
+<meta property="og:title" content="Regalos para el cumple de Carla">
+<meta property="og:description" content="Elegí un regalo y marcalo como comprado, así nadie lo repite.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+<meta name="theme-color" content="#fbf5f8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
+<style>
+  /* Una sola columna, pensada para el celular: título, cuántos quedan y las tarjetas. */
+  :root {
+    --fondo: #fbf5f8;
+    --tarjeta: #ffffff;
+    --texto: #2b1a2f;
+    --suave: #76637a;
+    --linea: #ecdce5;
+    --frambuesa: #b8174f;
+    --frambuesa-texto: #ffffff;
+    --listo: #2f7a57;
+    --listo-fondo: #e6f4ec;
+    --titulo: "Bricolage Grotesque", ui-rounded, "Segoe UI", system-ui, sans-serif;
+    --cuerpo: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fondo: #1b1320;
+      --tarjeta: #261b2b;
+      --texto: #f6ebf2;
+      --suave: #b9a5bc;
+      --linea: #3b2b40;
+      --frambuesa: #f2668f;
+      --frambuesa-texto: #2a0c17;
+      --listo: #7ed3a6;
+      --listo-fondo: #1f3329;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font: 17px/1.5 var(--cuerpo);
+    -webkit-text-size-adjust: 100%;
+  }
+  main {
+    max-width: 34rem;
+    margin: 0 auto;
+    padding-block: max(2.5rem, env(safe-area-inset-top)) max(3rem, env(safe-area-inset-bottom));
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+  header { display: flex; flex-direction: column; gap: 0.6rem; }
+  .globos { font-size: 2.25rem; line-height: 1; }
+  h1 {
+    margin: 0;
+    font: 800 clamp(2.1rem, 9vw, 2.9rem)/1.05 var(--titulo);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  h1 em { font-style: normal; color: var(--frambuesa); }
+  .explica { margin: 0; color: var(--suave); max-width: 30rem; }
+  .cuantos {
+    align-self: flex-start;
+    margin: 0;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: var(--tarjeta);
+    border: 1px solid var(--linea);
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  section { display: flex; flex-direction: column; gap: 0.9rem; }
+  ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+  .regalo {
+    background: var(--tarjeta);
+    border: 1px solid var(--linea);
+    border-radius: 1.1rem;
+    padding: 1.1rem 1.1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .tienda {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--suave);
+  }
+  .nombre { margin: 0.15rem 0 0; font: 600 1.3rem/1.25 var(--titulo); text-wrap: balance; }
+  .botones { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
+  .boton {
+    flex: 1 1 9rem;
+    min-height: 3rem;
+    padding: 0.7rem 1rem;
+    border-radius: 0.8rem;
+    border: 1.5px solid var(--linea);
+    background: transparent;
+    color: var(--texto);
+    font: 600 1rem/1.2 var(--cuerpo);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .boton.fuerte { background: var(--frambuesa); border-color: var(--frambuesa); color: var(--frambuesa-texto); }
+  .boton:disabled { opacity: 0.6; cursor: default; }
+  .boton:focus-visible, .chico:focus-visible { outline: 3px solid var(--frambuesa); outline-offset: 2px; }
+  .pregunta { margin: 0; flex-basis: 100%; font-weight: 600; }
+  .chico {
+    border: 0;
+    background: none;
+    padding: 0.25rem 0;
+    color: var(--suave);
+    font: inherit;
+    font-size: 0.95rem;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .sello {
+    align-self: flex-start;
+    margin: 0;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    background: var(--listo-fondo);
+    color: var(--listo);
+    font-size: 0.92rem;
+    font-weight: 700;
+  }
+  .comprado .nombre { text-decoration: line-through; text-decoration-thickness: 2px; color: var(--suave); }
+  .comprado .tienda { opacity: 0.7; }
+  .aviso { margin: 0; padding: 0.8rem 1rem; border-radius: 0.8rem; background: var(--tarjeta); border: 1px solid var(--linea); }
+  .aviso.error { border-color: var(--frambuesa); }
+  .pie { margin: 0; color: var(--suave); font-size: 0.9rem; text-align: center; }
+  @media (prefers-reduced-motion: no-preference) {
+    .regalo { transition: opacity 0.2s; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="globos" aria-hidden="true">🎈🎁</div>
+    <h1>El cumple de <em>Carla</em></h1>
+    <p class="explica">Elegí un regalo, compralo y tocá <strong>«Ya lo compré»</strong>. Así a las demás les aparece tachado y nadie lo repite.</p>
+    <p class="cuantos" id="cuantos" hidden></p>
+  </header>
+  <section aria-live="polite">
+    <p class="aviso" id="aviso">Cargando la lista…</p>
+    <p class="aviso error" id="mensaje" hidden></p>
+    <ul id="lista" hidden></ul>
+  </section>
+  <p class="pie">La lista se actualiza sola.</p>
+</main>
+<script>
+(function () {
+  var URL_BASE = "https://suwjifogzancfbltuywb.supabase.co";
+  var CLAVE = "sb_publishable_y6yP5nnHkh4bUADislBKWQ_6h4KNoz6";
+  var lista = document.getElementById("lista");
+  var aviso = document.getElementById("aviso");
+  var cuantos = document.getElementById("cuantos");
+  var mensaje = document.getElementById("mensaje");
+  var regalos = [];
+  var preguntando = null; // el regalo que está mostrando "¿Seguro?"
+  var ocupado = false;
+
+  function leer(nombre, siNo) {
+    try { var v = localStorage.getItem(nombre); return v ? JSON.parse(v) : siNo; } catch (e) { return siNo; }
+  }
+  function guardar(nombre, valor) {
+    try { localStorage.setItem(nombre, JSON.stringify(valor)); } catch (e) {}
+  }
+
+  // El código de este celular: con él se puede desmarcar lo que marcó acá.
+  var codigo = leer("regalos-codigo", "");
+  if (!codigo) {
+    var bytes = new Uint8Array(16);
+    crypto.getRandomValues(bytes);
+    codigo = Array.prototype.map.call(bytes, function (b) { return ("0" + b.toString(16)).slice(-2); }).join("");
+    guardar("regalos-codigo", codigo);
+  }
+  var mios = leer("regalos-mios", []);
+
+  function llamar(funcion, datos) {
+    return fetch(URL_BASE + "/rest/v1/rpc/" + funcion, {
+      method: "POST",
+      headers: { apikey: CLAVE, "Content-Type": "application/json" },
+      body: JSON.stringify(datos || {}),
+    }).then(function (r) {
+      if (!r.ok) throw new Error("respuesta " + r.status);
+      return r.json();
+    });
+  }
+
+  function mostrarAviso(texto, esError, conBoton) {
+    aviso.textContent = texto;
+    aviso.className = esError ? "aviso error" : "aviso";
+    if (conBoton) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "chico";
+      b.textContent = "Probar de nuevo";
+      b.style.marginLeft = "0.5rem";
+      b.onclick = function () { mostrarAviso("Cargando la lista…"); traer(); };
+      aviso.appendChild(b);
+    }
+    aviso.hidden = false;
+  }
+
+  // Un aviso que queda hasta que la persona toque otra cosa.
+  function decir(texto) {
+    mensaje.textContent = texto;
+    mensaje.hidden = !texto;
+  }
+
+  function boton(texto, fuerte, alTocar) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = fuerte ? "boton fuerte" : "boton";
+    b.textContent = texto;
+    b.disabled = ocupado;
+    b.onclick = alTocar;
+    return b;
+  }
+
+  function dibujar() {
+    lista.textContent = "";
+    var quedan = 0;
+    regalos.forEach(function (r) {
+      var esMio = mios.indexOf(r.id) !== -1;
+      if (!r.comprado) quedan++;
+
+      var li = document.createElement("li");
+      li.className = r.comprado ? "regalo comprado" : "regalo";
+
+      var arriba = document.createElement("div");
+      var tienda = document.createElement("p");
+      tienda.className = "tienda";
+      tienda.textContent = r.tienda;
+      var nombre = document.createElement("h2");
+      nombre.className = "nombre";
+      nombre.textContent = r.nombre;
+      arriba.appendChild(tienda);
+      arriba.appendChild(nombre);
+      li.appendChild(arriba);
+
+      if (r.comprado) {
+        var sello = document.createElement("p");
+        sello.className = "sello";
+        sello.textContent = esMio ? "✓ Lo compraste vos" : "✓ Ya lo compraron";
+        li.appendChild(sello);
+      }
+
+      var botones = document.createElement("div");
+      botones.className = "botones";
+
+      if (!r.comprado && preguntando === r.id) {
+        var pregunta = document.createElement("p");
+        pregunta.className = "pregunta";
+        pregunta.textContent = "¿Ya lo compraste? Se va a tachar para todas.";
+        botones.appendChild(pregunta);
+        botones.appendChild(boton("Sí, lo compré", true, function () { comprar(r); }));
+        botones.appendChild(boton("Cancelar", false, function () { preguntando = null; dibujar(); }));
+      } else {
+        if (/^https:\/\//.test(r.link) && !r.comprado) {
+          var ver = document.createElement("a");
+          ver.className = "boton";
+          ver.href = r.link;
+          ver.target = "_blank";
+          ver.rel = "noopener noreferrer";
+          ver.textContent = "Ver el regalo ↗";
+          botones.appendChild(ver);
+        }
+        if (!r.comprado) {
+          botones.appendChild(boton("Ya lo compré", true, function () { decir(""); preguntando = r.id; dibujar(); }));
+        } else if (esMio) {
+          var deshacer = document.createElement("button");
+          deshacer.type = "button";
+          deshacer.className = "chico";
+          deshacer.textContent = "Me equivoqué, desmarcarlo";
+          deshacer.disabled = ocupado;
+          deshacer.onclick = function () { decir(""); desmarcar(r); };
+          botones.appendChild(deshacer);
+        }
+      }
+      if (botones.childNodes.length) li.appendChild(botones);
+      lista.appendChild(li);
+    });
+
+    cuantos.textContent = quedan === 0
+      ? "¡Ya compraron todos los regalos! 🎉"
+      : "Quedan " + quedan + " de " + regalos.length + " sin comprar";
+    cuantos.hidden = regalos.length === 0;
+    lista.hidden = regalos.length === 0;
+    if (regalos.length === 0) mostrarAviso("Todavía no hay regalos en la lista.");
+    else aviso.hidden = true;
+  }
+
+  function traer() {
+    if (!URL_BASE || !CLAVE) {
+      mostrarAviso("La lista no está disponible por ahora.", true);
+      return Promise.resolve();
+    }
+    return llamar("lista_regalos").then(function (datos) {
+      regalos = datos;
+      // Si alguien lo desmarcó, deja de ser "mío".
+      mios = mios.filter(function (id) {
+        return regalos.some(function (r) { return r.id === id && r.comprado; });
+      });
+      guardar("regalos-mios", mios);
+      if (!ocupado) dibujar();
+    }).catch(function () {
+      if (!regalos.length) mostrarAviso("No se pudo cargar la lista. Revisá tu internet.", true, true);
+    });
+  }
+
+  function comprar(r) {
+    ocupado = true;
+    dibujar();
+    llamar("comprar_regalo", { regalo: r.id, codigo: codigo }).then(function (pude) {
+      ocupado = false;
+      preguntando = null;
+      if (pude) {
+        mios.push(r.id);
+        guardar("regalos-mios", mios);
+      } else {
+        decir("Uy, otra persona lo marcó como comprado justo antes. Elegí otro regalo.");
+      }
+      return traer();
+    }).catch(function () {
+      ocupado = false;
+      dibujar();
+      decir("No se pudo marcar. Revisá tu internet y probá de nuevo.");
+    });
+  }
+
+  function desmarcar(r) {
+    ocupado = true;
+    dibujar();
+    llamar("desmarcar_regalo", { regalo: r.id, codigo: codigo }).then(function () {
+      ocupado = false;
+      mios = mios.filter(function (id) { return id !== r.id; });
+      guardar("regalos-mios", mios);
+      return traer();
+    }).catch(function () {
+      ocupado = false;
+      dibujar();
+      decir("No se pudo desmarcar. Revisá tu internet y probá de nuevo.");
+    });
+  }
+
+  traer();
+  // Para ver lo que marcan las demás sin tener que recargar.
+  setInterval(function () { if (!document.hidden && preguntando === null) traer(); }, 15000);
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) traer(); });
+})();
+</script>
+</body>
+</html>

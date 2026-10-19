@@ -3,182 +3,275 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Regalos para el cumple de Carla</title>
-<meta name="description" content="Elegí un regalo y marcalo como comprado, así nadie lo repite.">
-<meta property="og:title" content="Regalos para el cumple de Carla">
-<meta property="og:description" content="Elegí un regalo y marcalo como comprado, así nadie lo repite.">
+<title>Mis Magníficos Deseos</title>
+<meta name="description" content="La lista de regalos de Carla. Elegí uno, compralo y marcalo para que nadie lo repita.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mis magníficos deseos">
+<meta property="og:description" content="La lista de regalos de Carla. Elegí uno, compralo y marcalo para que nadie lo repita.">
+<meta property="og:image" content="https://regalos-carla.vercel.app/fotos/portada.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b0b0c">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
-<meta name="theme-color" content="#fbf5f8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700&family=Jost:wght@400;500;600&display=swap">
 <style>
-  /* Una sola columna, pensada para el celular: título, cuántos quedan y las tarjetas. */
+  /* Como el PDF de Carla: todo negro con un marco dorado. Arriba el título y
+     cómo funciona; después la grilla de regalos (2 columnas en el celular,
+     3 en pantallas grandes) y abajo los datos de la fiesta. */
   :root {
-    --fondo: #fbf5f8;
-    --tarjeta: #ffffff;
-    --texto: #2b1a2f;
-    --suave: #76637a;
-    --linea: #ecdce5;
-    --frambuesa: #b8174f;
-    --frambuesa-texto: #ffffff;
-    --listo: #2f7a57;
-    --listo-fondo: #e6f4ec;
-    --titulo: "Bricolage Grotesque", ui-rounded, "Segoe UI", system-ui, sans-serif;
-    --cuerpo: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    color-scheme: light;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --fondo: #1b1320;
-      --tarjeta: #261b2b;
-      --texto: #f6ebf2;
-      --suave: #b9a5bc;
-      --linea: #3b2b40;
-      --frambuesa: #f2668f;
-      --frambuesa-texto: #2a0c17;
-      --listo: #7ed3a6;
-      --listo-fondo: #1f3329;
-      color-scheme: dark;
-    }
+    --negro: #0b0b0c;
+    --tarjeta: #151514;
+    --linea: #5c4a27;
+    --oro: #c9a45c;
+    --oro-claro: #e8c98a;
+    --tinta-oro: #1a1309;
+    --texto: #f3efe7;
+    --suave: #a59e91;
+    --foto: #f2f0eb;
+    --titulo: "Bodoni Moda", "Liberation Serif", Georgia, "Times New Roman", serif;
+    --cuerpo: "Jost", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color-scheme: dark;
   }
   * { box-sizing: border-box; }
   [hidden] { display: none !important; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
-    background: var(--fondo);
+    background: var(--negro);
     color: var(--texto);
-    font: 17px/1.5 var(--cuerpo);
-    -webkit-text-size-adjust: 100%;
+    font: 400 16px/1.5 var(--cuerpo);
+    padding-block: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-bottom));
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
   }
-  main {
-    max-width: 34rem;
+  .marco {
+    max-width: 62rem;
     margin: 0 auto;
-    padding-block: max(2.5rem, env(safe-area-inset-top)) max(3rem, env(safe-area-inset-bottom));
-    padding-left: max(16px, env(safe-area-inset-left));
-    padding-right: max(16px, env(safe-area-inset-right));
+    border: 1px solid var(--linea);
+    padding: 2rem clamp(0.75rem, 3vw, 2rem) 0;
     display: flex;
     flex-direction: column;
     gap: 1.75rem;
   }
-  header { display: flex; flex-direction: column; gap: 0.6rem; }
-  .globos { font-size: 2.25rem; line-height: 1; }
+
+  header { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
   h1 {
     margin: 0;
-    font: 800 clamp(2.1rem, 9vw, 2.9rem)/1.05 var(--titulo);
-    letter-spacing: -0.02em;
+    font: 700 clamp(1.9rem, 8.5vw, 3.4rem)/1.08 var(--titulo);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--oro-claro);
     text-wrap: balance;
   }
-  h1 em { font-style: normal; color: var(--frambuesa); }
-  .explica { margin: 0; color: var(--suave); max-width: 30rem; }
-  .cuantos {
-    align-self: flex-start;
-    margin: 0;
-    padding: 0.35rem 0.8rem;
-    border-radius: 999px;
-    background: var(--tarjeta);
+  .regla { width: min(100%, 40rem); height: 1px; background: var(--oro); opacity: 0.7; }
+  .de { margin: 0; color: var(--suave); font-size: 0.95rem; letter-spacing: 0.14em; text-transform: uppercase; }
+
+  .como {
     border: 1px solid var(--linea);
-    font-size: 0.95rem;
-    font-weight: 600;
+    border-radius: 0.75rem;
+    background: var(--tarjeta);
+    padding: 1.1rem 1.1rem 1.15rem;
+    max-width: 40rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .como h2 {
+    margin: 0 0 0.75rem;
+    font: 600 0.8rem/1.2 var(--cuerpo);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--oro);
+  }
+  .como ol { margin: 0; padding: 0; list-style: none; counter-reset: paso; display: flex; flex-direction: column; gap: 0.65rem; }
+  .como li { counter-increment: paso; display: grid; grid-template-columns: 1.9rem 1fr; gap: 0.6rem; align-items: start; }
+  .como li::before {
+    content: counter(paso);
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    border: 1px solid var(--oro);
+    color: var(--oro-claro);
+    font: 700 1rem/1.75rem var(--titulo);
+    text-align: center;
+  }
+  .como strong { color: var(--oro-claro); font-weight: 600; }
+  .como .nota { margin: 0.85rem 0 0; color: var(--suave); font-size: 0.92rem; }
+
+  .cuantos {
+    margin: 0 auto;
+    padding: 0.35rem 0.95rem;
+    border: 1px solid var(--linea);
+    border-radius: 999px;
+    color: var(--oro-claro);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     font-variant-numeric: tabular-nums;
   }
-  section { display: flex; flex-direction: column; gap: 0.9rem; }
-  ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+
+  section.lista { display: flex; flex-direction: column; gap: 0.9rem; }
+  .aviso { margin: 0; padding: 0.8rem 1rem; border: 1px solid var(--linea); border-radius: 0.6rem; background: var(--tarjeta); text-align: center; }
+  .aviso.error { border-color: var(--oro); color: var(--oro-claro); }
+
+  .grilla {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+  @media (min-width: 40rem) { .grilla { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; } }
+
   .regalo {
-    background: var(--tarjeta);
-    border: 1px solid var(--linea);
-    border-radius: 1.1rem;
-    padding: 1.1rem 1.1rem 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 0.45rem;
+    padding: 0.5rem 0.5rem 0.6rem;
+    border: 1px solid var(--linea);
+    border-radius: 0.6rem;
+    background: var(--tarjeta);
+    min-width: 0;
   }
-  .tienda {
-    margin: 0;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.09em;
+  .foto {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    max-width: 100%;
+    border-radius: 0.35rem;
+    background: var(--foto);
+    overflow: hidden;
+  }
+  .foto img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .sello {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-8deg);
+    padding: 0.3rem 0.7rem;
+    border: 2px solid var(--oro);
+    border-radius: 0.3rem;
+    background: var(--negro);
+    color: var(--oro-claro);
+    font: 600 0.8rem/1 var(--cuerpo);
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--suave);
+    white-space: nowrap;
   }
-  .nombre { margin: 0.15rem 0 0; font: 600 1.3rem/1.25 var(--titulo); text-wrap: balance; }
-  .botones { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
+  .estado {
+    margin: 0.2rem 0 0;
+    color: var(--oro);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+  .nombre { margin: 0; font: 600 0.98rem/1.25 var(--cuerpo); overflow-wrap: anywhere; }
+  .tienda { margin: 0; color: var(--suave); font-size: 0.85rem; }
+
+  .botones { margin-top: auto; padding-top: 0.35rem; display: flex; flex-direction: column; gap: 0.4rem; }
   .boton {
-    flex: 1 1 9rem;
-    min-height: 3rem;
-    padding: 0.7rem 1rem;
-    border-radius: 0.8rem;
-    border: 1.5px solid var(--linea);
+    min-height: 2.75rem;
+    padding: 0.55rem 0.5rem;
+    border-radius: 0.4rem;
+    border: 1px solid var(--oro);
     background: transparent;
-    color: var(--texto);
-    font: 600 1rem/1.2 var(--cuerpo);
+    color: var(--oro-claro);
+    font: 600 0.8rem/1.15 var(--cuerpo);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
   }
-  .boton.fuerte { background: var(--frambuesa); border-color: var(--frambuesa); color: var(--frambuesa-texto); }
-  .boton:disabled { opacity: 0.6; cursor: default; }
-  .boton:focus-visible, .chico:focus-visible { outline: 3px solid var(--frambuesa); outline-offset: 2px; }
-  .pregunta { margin: 0; flex-basis: 100%; font-weight: 600; }
+  .boton.oro { background: var(--oro); color: var(--tinta-oro); }
+  .boton:disabled { opacity: 0.55; cursor: default; }
+  .boton:focus-visible, .chico:focus-visible, .fiesta a:focus-visible { outline: 2px solid var(--oro-claro); outline-offset: 2px; }
+  .pregunta { margin: 0; font-weight: 600; font-size: 0.92rem; color: var(--oro-claro); }
   .chico {
     border: 0;
     background: none;
-    padding: 0.25rem 0;
+    padding: 0.35rem 0;
     color: var(--suave);
-    font: inherit;
-    font-size: 0.95rem;
+    font: 500 0.85rem/1.3 var(--cuerpo);
     text-decoration: underline;
     cursor: pointer;
   }
-  .sello {
-    align-self: flex-start;
-    margin: 0;
-    padding: 0.3rem 0.7rem;
-    border-radius: 999px;
-    background: var(--listo-fondo);
-    color: var(--listo);
-    font-size: 0.92rem;
-    font-weight: 700;
+
+  .comprado .foto img { filter: grayscale(1); opacity: 0.4; }
+  .comprado .estado { color: var(--suave); }
+  .comprado .nombre { color: var(--suave); text-decoration: line-through; text-decoration-color: var(--oro); text-decoration-thickness: 2px; }
+
+  .fiesta {
+    margin: 0 calc(-1 * clamp(0.75rem, 3vw, 2rem));
+    padding: 1.4rem 1rem 1.5rem;
+    border-top: 1px solid var(--linea);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
   }
-  .comprado .nombre { text-decoration: line-through; text-decoration-thickness: 2px; color: var(--suave); }
-  .comprado .tienda { opacity: 0.7; }
-  .aviso { margin: 0; padding: 0.8rem 1rem; border-radius: 0.8rem; background: var(--tarjeta); border: 1px solid var(--linea); }
-  .aviso.error { border-color: var(--frambuesa); }
-  .pie { margin: 0; color: var(--suave); font-size: 0.9rem; text-align: center; }
+  .fiesta p { margin: 0; }
+  .cuando { font: 700 clamp(0.95rem, 3.8vw, 1.15rem)/1.4 var(--titulo); color: var(--oro-claro); letter-spacing: 0.04em; text-transform: uppercase; text-wrap: balance; }
+  .fiesta a { color: inherit; text-decoration-color: var(--linea); text-underline-offset: 3px; }
+  .dress { color: var(--suave); font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; }
+  .fiesta .actualiza { color: var(--suave); font-size: 0.8rem; margin-top: 0.6rem; }
+
   @media (prefers-reduced-motion: no-preference) {
-    .regalo { transition: opacity 0.2s; }
+    .foto img { transition: filter 0.3s, opacity 0.3s; }
   }
 </style>
 </head>
 <body>
-<main>
+<div class="marco">
   <header>
-    <div class="globos" aria-hidden="true">🎈🎁</div>
-    <h1>El cumple de <em>Carla</em></h1>
-    <p class="explica">Elegí un regalo, compralo y tocá <strong>«Ya lo compré»</strong>. Así a las demás les aparece tachado y nadie lo repite.</p>
-    <p class="cuantos" id="cuantos" hidden></p>
+    <h1>Mis magníficos deseos</h1>
+    <div class="regla" aria-hidden="true"></div>
+    <p class="de">La lista de regalos de Carla</p>
   </header>
-  <section aria-live="polite">
-    <p class="aviso" id="aviso">Cargando la lista…</p>
-    <p class="aviso error" id="mensaje" hidden></p>
-    <ul id="lista" hidden></ul>
+
+  <section class="como" aria-labelledby="como-titulo">
+    <h2 id="como-titulo">¿Cómo funciona?</h2>
+    <ol>
+      <li><span><strong>Elegí un regalo</strong> de la lista y tocá «Ver producto» para comprarlo en la tienda.</span></li>
+      <li><span><strong>Cuando lo compres,</strong> volvé a esta página y tocá «Ya lo compré».</span></li>
+      <li><span><strong>Listo:</strong> a las demás les aparece como comprado, así nadie lo repite.</span></li>
+    </ol>
+    <p class="nota">¿Lo marcaste sin querer? Desde el mismo celular tocá «Me equivoqué» y vuelve a quedar libre.</p>
   </section>
-  <p class="pie">La lista se actualiza sola.</p>
-</main>
+
+  <p class="cuantos" id="cuantos" hidden></p>
+
+  <section class="lista" aria-live="polite" aria-label="Regalos">
+    <p class="aviso" id="aviso">Cargando los regalos…</p>
+    <p class="aviso error" id="mensaje" hidden></p>
+    <ul class="grilla" id="lista" hidden></ul>
+  </section>
+
+  <footer class="fiesta">
+    <p class="cuando">7 de noviembre · 19:00 a 23:00 · <a href="https://www.google.com/maps/search/?api=1&amp;query=Hortiguera+407,+CABA" target="_blank" rel="noopener noreferrer">Hortiguera 407, CABA</a></p>
+    <p class="dress">Total black · Solo para adultos</p>
+    <p class="actualiza">La lista se actualiza sola.</p>
+  </footer>
+</div>
 <script>
 (function () {
   var URL_BASE = "https://suwjifogzancfbltuywb.supabase.co";
   var CLAVE = "sb_publishable_y6yP5nnHkh4bUADislBKWQ_6h4KNoz6";
   var lista = document.getElementById("lista");
   var aviso = document.getElementById("aviso");
-  var cuantos = document.getElementById("cuantos");
   var mensaje = document.getElementById("mensaje");
+  var cuantos = document.getElementById("cuantos");
   var regalos = [];
-  var preguntando = null; // el regalo que está mostrando "¿Seguro?"
+  var preguntando = null; // el regalo que está mostrando "¿Ya lo compraste?"
   var ocupado = false;
 
   function leer(nombre, siNo) {
@@ -188,7 +281,7 @@
     try { localStorage.setItem(nombre, JSON.stringify(valor)); } catch (e) {}
   }
 
-  // El código de este celular: con él se puede desmarcar lo que marcó acá.
+  // El código de este celular: con él se puede desmarcar lo que se marcó acá.
   var codigo = leer("regalos-codigo", "");
   if (!codigo) {
     var bytes = new Uint8Array(16);
@@ -209,16 +302,16 @@
     });
   }
 
-  function mostrarAviso(texto, esError, conBoton) {
+  function mostrarAviso(texto, conBoton) {
     aviso.textContent = texto;
-    aviso.className = esError ? "aviso error" : "aviso";
+    aviso.className = conBoton ? "aviso error" : "aviso";
     if (conBoton) {
       var b = document.createElement("button");
       b.type = "button";
       b.className = "chico";
       b.textContent = "Probar de nuevo";
       b.style.marginLeft = "0.5rem";
-      b.onclick = function () { mostrarAviso("Cargando la lista…"); traer(); };
+      b.onclick = function () { mostrarAviso("Cargando los regalos…"); traer(); };
       aviso.appendChild(b);
     }
     aviso.hidden = false;
@@ -230,11 +323,16 @@
     mensaje.hidden = !texto;
   }
 
-  function boton(texto, fuerte, alTocar) {
-    var b = document.createElement("button");
+  function elemento(tipo, clase, texto) {
+    var e = document.createElement(tipo);
+    if (clase) e.className = clase;
+    if (texto) e.textContent = texto;
+    return e;
+  }
+
+  function boton(texto, oro, alTocar) {
+    var b = elemento("button", oro ? "boton oro" : "boton", texto);
     b.type = "button";
-    b.className = fuerte ? "boton fuerte" : "boton";
-    b.textContent = texto;
     b.disabled = ocupado;
     b.onclick = alTocar;
     return b;
@@ -245,68 +343,56 @@
     var quedan = 0;
     regalos.forEach(function (r) {
       var esMio = mios.indexOf(r.id) !== -1;
+      var numero = ("0" + r.orden).slice(-2);
       if (!r.comprado) quedan++;
 
-      var li = document.createElement("li");
-      li.className = r.comprado ? "regalo comprado" : "regalo";
+      var li = elemento("li", r.comprado ? "regalo comprado" : "regalo");
 
-      var arriba = document.createElement("div");
-      var tienda = document.createElement("p");
-      tienda.className = "tienda";
-      tienda.textContent = r.tienda;
-      var nombre = document.createElement("h2");
-      nombre.className = "nombre";
-      nombre.textContent = r.nombre;
-      arriba.appendChild(tienda);
-      arriba.appendChild(nombre);
-      li.appendChild(arriba);
-
-      if (r.comprado) {
-        var sello = document.createElement("p");
-        sello.className = "sello";
-        sello.textContent = esMio ? "✓ Lo compraste vos" : "✓ Ya lo compraron";
-        li.appendChild(sello);
+      var foto = elemento("div", "foto");
+      if (/^fotos\/[\w.-]+$/.test(r.foto || "")) {
+        var img = elemento("img");
+        img.src = r.foto;
+        img.alt = r.nombre;
+        img.loading = "lazy";
+        img.decoding = "async";
+        foto.appendChild(img);
       }
+      if (r.comprado) foto.appendChild(elemento("span", "sello", "Comprado"));
+      li.appendChild(foto);
 
-      var botones = document.createElement("div");
-      botones.className = "botones";
+      var estado = r.comprado ? (esMio ? "Lo compraste vos" : "Ya lo compraron") : "Disponible";
+      li.appendChild(elemento("p", "estado", numero + " · " + estado));
+      li.appendChild(elemento("h3", "nombre", r.nombre));
+      li.appendChild(elemento("p", "tienda", r.tienda));
 
+      var botones = elemento("div", "botones");
       if (!r.comprado && preguntando === r.id) {
-        var pregunta = document.createElement("p");
-        pregunta.className = "pregunta";
-        pregunta.textContent = "¿Ya lo compraste? Se va a tachar para todas.";
-        botones.appendChild(pregunta);
+        botones.appendChild(elemento("p", "pregunta", "¿Ya lo compraste?"));
         botones.appendChild(boton("Sí, lo compré", true, function () { comprar(r); }));
         botones.appendChild(boton("Cancelar", false, function () { preguntando = null; dibujar(); }));
-      } else {
-        if (/^https:\/\//.test(r.link) && !r.comprado) {
-          var ver = document.createElement("a");
-          ver.className = "boton";
+      } else if (!r.comprado) {
+        if (/^https:\/\//.test(r.link)) {
+          var ver = elemento("a", "boton oro", "Ver producto ↗");
           ver.href = r.link;
           ver.target = "_blank";
           ver.rel = "noopener noreferrer";
-          ver.textContent = "Ver el regalo ↗";
           botones.appendChild(ver);
         }
-        if (!r.comprado) {
-          botones.appendChild(boton("Ya lo compré", true, function () { decir(""); preguntando = r.id; dibujar(); }));
-        } else if (esMio) {
-          var deshacer = document.createElement("button");
-          deshacer.type = "button";
-          deshacer.className = "chico";
-          deshacer.textContent = "Me equivoqué, desmarcarlo";
-          deshacer.disabled = ocupado;
-          deshacer.onclick = function () { decir(""); desmarcar(r); };
-          botones.appendChild(deshacer);
-        }
+        botones.appendChild(boton("Ya lo compré", false, function () { decir(""); preguntando = r.id; dibujar(); }));
+      } else if (esMio) {
+        var deshacer = elemento("button", "chico", "Me equivoqué");
+        deshacer.type = "button";
+        deshacer.disabled = ocupado;
+        deshacer.onclick = function () { decir(""); desmarcar(r); };
+        botones.appendChild(deshacer);
       }
       if (botones.childNodes.length) li.appendChild(botones);
       lista.appendChild(li);
     });
 
     cuantos.textContent = quedan === 0
-      ? "¡Ya compraron todos los regalos! 🎉"
-      : "Quedan " + quedan + " de " + regalos.length + " sin comprar";
+      ? "¡Ya compraron todos los regalos!"
+      : (quedan === 1 ? "Queda 1" : "Quedan " + quedan) + " de " + regalos.length + " disponibles";
     cuantos.hidden = regalos.length === 0;
     lista.hidden = regalos.length === 0;
     if (regalos.length === 0) mostrarAviso("Todavía no hay regalos en la lista.");
@@ -314,20 +400,16 @@
   }
 
   function traer() {
-    if (!URL_BASE || !CLAVE) {
-      mostrarAviso("La lista no está disponible por ahora.", true);
-      return Promise.resolve();
-    }
-    return llamar("lista_regalos").then(function (datos) {
+    return llamar("regalos_con_fotos").then(function (datos) {
       regalos = datos;
-      // Si alguien lo desmarcó, deja de ser "mío".
+      // Si se desmarcó desde otro lado, deja de ser "mío".
       mios = mios.filter(function (id) {
         return regalos.some(function (r) { return r.id === id && r.comprado; });
       });
       guardar("regalos-mios", mios);
       if (!ocupado) dibujar();
     }).catch(function () {
-      if (!regalos.length) mostrarAviso("No se pudo cargar la lista. Revisá tu internet.", true, true);
+      if (!regalos.length) mostrarAviso("No se pudo cargar la lista. Revisá tu internet.", true);
     });
   }
 

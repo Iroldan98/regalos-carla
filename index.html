@@ -147,6 +147,20 @@
     overflow: hidden;
   }
   .foto img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .foto .sin-foto {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.75rem;
+    text-align: center;
+    color: var(--tinta-oro);
+    font: 700 clamp(1.05rem, 4.5vw, 1.4rem)/1.15 var(--titulo);
+  }
+  .foto .sin-foto span { font: 500 0.72rem/1.2 var(--cuerpo); letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; }
   .sello {
     position: absolute;
     left: 50%;
@@ -258,7 +272,7 @@
 
   <footer class="fiesta">
     <p class="cuando">7 de noviembre · 19:00 a 23:00 · <a href="https://www.google.com/maps/search/?api=1&amp;query=Hortiguera+407,+CABA" target="_blank" rel="noopener noreferrer">Hortiguera 407, CABA</a></p>
-    <p class="dress">Total black · Solo para adultos</p>
+    <p class="dress">Total black · Solo para mujeres</p>
     <p class="actualiza">La lista se actualiza sola.</p>
   </footer>
 </div>
@@ -356,6 +370,11 @@
         img.loading = "lazy";
         img.decoding = "async";
         foto.appendChild(img);
+      } else {
+        // Sin foto: el nombre de la tienda, para que el cuadro no quede vacío.
+        var sin = elemento("div", "sin-foto", r.tienda);
+        sin.appendChild(elemento("span", "", "Mirá la foto en la tienda"));
+        foto.appendChild(sin);
       }
       if (r.comprado) foto.appendChild(elemento("span", "sello", "Comprado"));
       li.appendChild(foto);
